@@ -1,19 +1,12 @@
 
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuItem from "../../../Components/MenuItem/MenuItem";
-// import useMenu from "../../../Hooks/useMenu";
+import useMenu from "../../../Hooks/useMenu";
 
 const PopularMenu = () => {
-    // const [menu] = useMenu();
-    // const popular = menu.filter(item => item.category === "popular");
-   const [menu, setmenu] = useState([])
-    useEffect(() =>{
-      fetch('menu.json')
-      .then(res => res.json())
-      .then(data => setmenu(data))
-    },[])
-   const popular = menu.filter(item => item.category === "popular")
+    const [menu] = useMenu();
+    const popular = menu.filter(item => item.category === "popular");
     return (
         <div className="container m-auto">
              <section>

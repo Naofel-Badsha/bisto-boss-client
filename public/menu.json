@@ -7,6 +7,50 @@
         "category": "salad",
         "price": 14.7
     },
+
+
+
+    {
+        "_id": "642c155b2c4774f05c36eeaaa",
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://i.ibb.co.com/zsTkqYr/deesert-2.jpg",
+        "category": "offerd",
+        "price": 14.7
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaaaa",
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://i.ibb.co.com/7kQQ5HZ/pop-4.webp",
+        "category": "offerd",
+        "price": 14.7
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaaaaa",
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://i.ibb.co.com/C5qn0V5/pop-5.jpg",
+        "category": "offerd",
+        "price": 14.7
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaaaaaa",
+        "name": "Haddock",
+        "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
+        "image": "https://i.ibb.co.com/JyjHDgT/drinks.jpg",
+        "category": "offerd",
+        "price": 14.7
+    },
+
+
+
+
+
+
+
+
+
     {
         "_id": "642c155b2c4774f05c36eeb9",
         "name": "Haddock",
