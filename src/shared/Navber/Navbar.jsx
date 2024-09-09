@@ -66,7 +66,7 @@ const Navbar = () => {
                   <i className="fa-solid fa-bars text-2xl hover:rotate-45"></i>
                 </label>
               </div>
-              <div className="flex-1 px-2 mx-2 text-2xl">Brosto Boss</div>
+              <div className="flex-1 px-2 mx-2 text-xl md:text-2xl lg:text-2xl">Brosto Boss</div>
               <div className="flex-none hidden lg:block">
                 <ul className=" menu menu-horizontal gap-5">
                   {/* Navbar menu content here */}
@@ -100,7 +100,7 @@ const Navbar = () => {
             {/* <span>{user?.displayName}</span> */}
             <button
               onClick={handelSingOut}
-              className="btn text-[#008080] text-xl font-bold  border-[#008080]"
+              className="btn text-[#008080] md:text-xl lg:text-xl font-bold  border-[#008080]"
             >
               Sing Out
             </button>
@@ -108,7 +108,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="login">
-              <button className="btn text-[#ff6347] text-xl font-bold border-2 border-[#ff6347]">
+              <button className="btn text-[#ff6347] md:text-xl lg:text-xl font-bold border-2 border-[#ff6347]">
                 Login
               </button>
             </Link>

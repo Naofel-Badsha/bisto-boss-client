@@ -3,7 +3,7 @@ import featuredImg from "../../../assets/home/featured.jpg";
 import './Feature.css'
 const Feature = () => {
   return (
-    <div className="featured-item  mt-10 container m-auto">
+    <div className="featured-item mt-10 container m-auto">
       <SectionTitle
         subHeading={"Check it out"}
         heading={"Feature Item"}
@@ -19,7 +19,7 @@ const Feature = () => {
                 Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. 
                 Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.
                 </p>
-                <button className="btn btn-outline border-0 border-b-4 mt-4">Order Now</button>
+                <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black hover:text-yellow-600 duration-100">Order Now</button>
         </div>
       </div>
     </div>

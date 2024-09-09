@@ -24,7 +24,7 @@ const ChefRecommends = () => {
             <h2 className="text-2xl font-bold">Drinks</h2>
             <p className="text-xl py-2">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
             <div className="card-actions">
-            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black">Add to Cart</button>
+            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black hover:text-yellow-600 duration-100">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ const ChefRecommends = () => {
             <h2 className="text-2xl font-bold">Burger</h2>
             <p className="text-xl py-2">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
             <div className="card-actions">
-            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black">Add to Cart</button>
+            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black hover:text-yellow-600 duration-100">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ const ChefRecommends = () => {
             <h2 className="text-2xl font-bold">Dessert</h2>
             <p className="text-xl py-2">Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.</p>
             <div className="card-actions">
-            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black">Add to Cart</button>
+            <button className="btn btn-outline border-0 border-b-4 mt-4 text-xl text-black hover:text-yellow-600 duration-100">Add to Cart</button>
             </div>
           </div>
         </div>
