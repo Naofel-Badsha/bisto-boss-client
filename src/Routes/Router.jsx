@@ -25,16 +25,16 @@ const router = createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: '/contactUs',
-                element: <ContactUs></ContactUs>,
-            },
-            {
               path: '/ourMenu',
-              element: <PrivateRoute><OurMenu></OurMenu></PrivateRoute>,
+              element: <OurMenu></OurMenu>,
             },
             {
               path: '/orderFood/:category',
               element: <OrderFood></OrderFood>,
+            },
+            {
+                path: '/contactUs',
+                element: <ContactUs></ContactUs>,
             },
             {
                 path: '/login',

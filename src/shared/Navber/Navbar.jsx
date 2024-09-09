@@ -17,30 +17,30 @@ const Navbar = () => {
   const navLink = (
     <>
       <li>
-        <NavLink className="text-xl text-white font-bold" to="/">
+        <NavLink className="text-xl text-[#008080] font-bold" to="/">
           Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-xl text-white font-bold" to="/contactUs">
-          Contact Us
         </NavLink>
       </li>
       {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/dashBord">Bash Bord</NavLink></li> */}
       <li>
-        <NavLink className="text-xl text-white font-bold" to="/ourMenu">
+        <NavLink className="text-xl text-[#008080] font-bold" to="/ourMenu">
           Our Menu
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-xl text-white font-bold" to="/orderFood/salad">
+        <NavLink className="text-xl text-[#008080] font-bold" to="/orderFood/salad">
           Order Food
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="text-xl text-[#008080] font-bold" to="/contactUs">
+          Contact Us
         </NavLink>
       </li>
       {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/login">Login</NavLink></li>
           <li><NavLink className="ml-3 text-[16px] font-bold" to="/register">Register</NavLink></li> */}
       <li>
-        <NavLink className="text-xl text-white font-bold" to="/dashboard/cart">
+        <NavLink className="text-xl text-[#008080] font-bold" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">
             <i className="fa-solid fa-cart-plus text-[22px]"></i>
             {/* <div className="badge badge-secondary">+{cart.length}</div> */}
@@ -50,7 +50,7 @@ const Navbar = () => {
     </> //
   );
   return (
-    <div className="navbar bg-base-100  sticky inset-0 z-10  w-full max-w-full rounded-none border  bg-opacity-30 py-2 px-4 text-black shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-2 lg:py-2">
+    <div className="navbar sticky inset-0 z-10  w-full max-w-full rounded-none border  bg-opacity-30 py-2 px-4 text-black shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-2 lg:py-2">
         {/*---max-w-[1200px] m-auto---*/}
         <nav className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -100,7 +100,7 @@ const Navbar = () => {
             {/* <span>{user?.displayName}</span> */}
             <button
               onClick={handelSingOut}
-              className="btn text-[#008080] md:text-xl lg:text-xl font-bold  border-[#008080]"
+              className="btn text-white hover:text-[#008080] md:text-xl lg:text-xl font-bold border-0"
             >
               Sing Out
             </button>
@@ -108,7 +108,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="login">
-              <button className="btn text-[#ff6347] md:text-xl lg:text-xl font-bold border-2 border-[#ff6347]">
+              <button className="btn text-white hover:text-[#ff6347] md:text-xl lg:text-xl font-bold border-0">
                 Login
               </button>
             </Link>

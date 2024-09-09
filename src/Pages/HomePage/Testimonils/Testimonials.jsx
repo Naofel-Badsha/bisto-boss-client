@@ -16,19 +16,20 @@ import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
+  // http://localhost:5000/reviews
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("reviews.json")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
   return (
-    <div className="container m-auto">
+    <div className="container m-auto py-10">
       <SectionTitle
         subHeading={"What Our Clients Say"}
         heading={"TESTIMONIALS"}
       ></SectionTitle>
       <div>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+        <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper">
           {reviews.map((review) => (
             <SwiperSlide key={review._id}>
               <div className="flex flex-col items-center m-24  text-center">
