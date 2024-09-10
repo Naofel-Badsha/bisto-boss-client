@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../../shared/Cover/Cover";
 import menuImg from "../../../assets/menu/banner3.jpg";
+import offerdImg from "../../../assets/menu/offerd.jpg";
 import dessertsMenu from "../../../assets/menu/deser-3.jpg";
 import pizzaMenu from "../../../assets/menu/pizza-2.jpg";
-import pizzaSalade from "../../../assets/menu/salad-2.jpg";
-import pizzaSoups from "../../../assets/menu/suff-1.webp";
+import saladeMenu from "../../../assets/menu/salad-2.jpg";
+import soupMenu from "../../../assets/menu/suff-1.webp";
+import drinkMenu from "../../../assets/menu/drinks.jpg";
 import useMenu from "../../../Hooks/useMenu";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import MenuCatagory from "../MenuCatagory/MenuCatagory";
@@ -16,39 +18,31 @@ const OurMenu = () => {
   const pizza = menu.filter((item) => item.category === "pizza");
   const salad = menu.filter((item) => item.category === "salad");
   const soup = menu.filter((item) => item.category === "soup");
+  const drink = menu.filter((item) => item.category === "drink");
+
   return (
     <div>
       <Helmet>
         <title>Bistro || Menu</title>
       </Helmet>
       {/*----------Menu-----1-------*/}
-      <Cover img={menuImg} title={"Our Menu"}></Cover>
+      <Cover img={menuImg} items={offerd} title={"Our All Menu"}></Cover>
       {/*---------------Section--------Title-------*/}
-      <section>
-        <SectionTitle
-          subHeading={"Don't Miss"}
-          heading={"TODAY'S OFFER"}
-        ></SectionTitle>
-      </section>
-      <MenuCatagory items={offerd}></MenuCatagory>
+      <section><SectionTitle subHeading={"Don't Miss"}heading={"TODAY'S OFFER"}></SectionTitle></section>
+      
+      <MenuCatagory items={offerd} title={"offerd"} img={offerdImg}></MenuCatagory>
 
-
+      
       {/*----------Desserts-----2-------*/}
-      <Cover img={dessertsMenu} title={"Our Desserts"}></Cover>
-      <MenuCatagory items={dessert}></MenuCatagory>
-
-
+      <MenuCatagory items={dessert} title={"dessert"} img={dessertsMenu}></MenuCatagory>
       {/*----------Pizza-----3-------*/}
-      <Cover img={pizzaMenu} title={"Our Pizza"}></Cover>
-      <MenuCatagory items={pizza}></MenuCatagory>
-
+      <MenuCatagory items={pizza} title={"pizza"} img={pizzaMenu}></MenuCatagory>
       {/*----------Salade-----4-------*/}
-      <Cover img={pizzaSalade} title={"Our Salades"}></Cover>
-      <MenuCatagory items={salad}></MenuCatagory>
-
+      <MenuCatagory items={salad} title={"salad"} img={saladeMenu}></MenuCatagory>
       {/*----------Salade-----5-------*/}
-      <Cover img={pizzaSoups} title={"Our Soups"}></Cover>
-      <MenuCatagory items={soup}></MenuCatagory>
+      <MenuCatagory items={soup} title={"soup"} img={soupMenu}></MenuCatagory>
+      {/*----------Salade-----6-------*/}
+      <MenuCatagory items={drink} title={"drink"} img={drinkMenu}></MenuCatagory>
     </div>
   );
 };

@@ -7,9 +7,6 @@
         "category": "salad",
         "price": 14.7
     },
-
-
-
     {
         "_id": "642c155b2c4774f05c36eeaaa",
         "name": "Haddock",
@@ -42,21 +39,12 @@
         "category": "offerd",
         "price": 14.7
     },
-
-
-
-
-
-
-
-
-
     {
         "_id": "642c155b2c4774f05c36eeb9",
         "name": "Haddock",
         "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
         "image": "https://i.ibb.co/wp2DjVN/drnk-1.jpg",
-        "category": "drinks",
+        "category": "drink",
         "price": 14.7
     },
     {
@@ -148,14 +136,6 @@
         "price": 9.5
     },
     {
-        "_id": "642c155b2c4774f05c36ee81",
-        "name": "Tuna Niçoise",
-        "recipe": "Warm goats cheese and roasted vegetable salad with black olive tapenade crostini",
-        "image": "https://i.ibb.co/L68T2pQ/off-3.png",
-        "category": "offered",
-        "price": 10.5
-    },
-    {
         "_id": "642c155b2c4774f05c36ee84",
         "name": "Roast Duck Breast",
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
@@ -188,14 +168,6 @@
         "price": 13.5
     },
     {
-        "_id": "642c155b2c4774f05c36ee83",
-        "name": "Chicken and Walnut Salad",
-        "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
-        "image": "https://i.ibb.co/x5MmSCV/off-4.jpg",
-        "category": "offered",
-        "price": 13.5
-    },
-    {
         "_id": "642c155b2c4774f05c36ee7f",
         "name": "Roasted Pork Belly",
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
@@ -216,16 +188,8 @@
         "name": "Haddock",
         "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
         "image": "https://i.ibb.co/rZj1sqx/drnk-2.jpg",
-        "category": "drinks",
+        "category": "drink",
         "price": 14.7
-    },
-    {
-        "_id": "642c155b2c4774f05c36ee80",
-        "name": "Roast Duck Breast",
-        "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
-        "image": "https://i.ibb.co/10r7r32/off-6.png",
-        "category": "offered",
-        "price": 14.5
     },
     {
         "_id": "642c155b2c4774f05c36ee90",
@@ -442,14 +406,6 @@
         "image": "https://i.ibb.co/h8vc3Bb/pizza-12.jpg",
         "category": "pizza",
         "price": 12.9
-    },
-    {
-        "_id": "642c155b2c4774f05c36ee82",
-        "name": "Escalope de Veau",
-        "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
-        "image": "https://i.ibb.co/4KSQ1zb/off-11.png",
-        "category": "offered",
-        "price": 12.5
     },
     {
         "_id": "642c155b2c4774f05c36ee86",
