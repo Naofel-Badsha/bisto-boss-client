@@ -14,7 +14,7 @@ const FoodCard = ({ item }) => {
           <h2 className="card-title text-[#008080]">{name}</h2>
           <p className="text-xl py-2">{recipe}?</p>
           <div className="card-actions">
-            <button className="btn btn-outline bg-slate-200 text-black text-xl border-0 border-b-4 border-orange-400">
+            <button className="btn hover:text-white bg-slate-200 duration-100 text-black text-xl border-0 border-b-4 border-orange-400">
               Add To Cart
             </button>
           </div>
