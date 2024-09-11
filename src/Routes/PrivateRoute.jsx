@@ -1,19 +1,19 @@
 
 import { Navigate, useLocation } from "react-router-dom";
-
-// import loadingSpinner from "../assets/others/loader2.gif";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 // import useAuth from "../Hooks/useAuth";
-// { children }
-const PrivateRoute = () => {
-  // const { user, loading } = useAuth();
+
+
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
   const loaction = useLocation();
-  // if (loading) {
-  //   return <div className="flex item-center justify-center"> <img src={loadingSpinner} className="w-[200px] " /></div>
-    
-  // }
-  // if (user) {
-  //   return children;
-  // }
+  if (loading) {
+    return <div className="flex item-center justify-center"> <img src="https://i.ibb.co.com/6Bt99B3/loding-3.gif" className="w-[200px] " /></div>
+  }
+  if (user) {
+    return children;
+  }
   return <Navigate to="/login" state={{from: loaction}} replace></Navigate>;
 };
 

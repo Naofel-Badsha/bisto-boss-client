@@ -21,8 +21,8 @@ const Navbar = () => {
       <li><NavLink className="text-xl text-[#008080] font-bold" to="/ourMenu">Our Menu</NavLink></li>
       <li><NavLink className="text-xl text-[#008080] font-bold" to="/orderFood/salad">Order Food</NavLink></li>
       <li><NavLink className="text-xl text-[#008080] font-bold" to="/contactUs">Contact Us</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/login">Login</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/register">Register</NavLink></li>
+      {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/login">Login</NavLink></li> */}
+      {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/register">Register</NavLink></li> */}
       <li>
         <NavLink className="text-xl text-[#008080] font-bold" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">
@@ -31,10 +31,10 @@ const Navbar = () => {
           </button>
         </NavLink>
       </li>
-    </> //
+    </> 
   );
   return (
-    <div className="navbar sticky inset-0 z-10  w-full max-w-full rounded-none border  bg-opacity-30 py-2 px-4 text-black shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-2 lg:py-2">
+    <div className="navbar sticky inset-0 z-10  w-full max-w-full rounded-none bg-opacity-30 py-2 px-4 text-black shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-2 lg:py-2">
         {/*---max-w-[1200px] m-auto---*/}
         <nav className="drawer">
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -79,9 +79,9 @@ const Navbar = () => {
             user?.photoURL ? user.photoURL : "https://i.ibb.co/Y79Vw8B/user.png"
           }
         />
+        {/* <span>{user?.displayName}</span> */}
         {user ? (
           <>
-            {/* <span>{user?.displayName}</span> */}
             <button
               onClick={handelSingOut}
               className="btn text-white hover:text-[#008080] md:text-xl lg:text-xl font-bold border-0"

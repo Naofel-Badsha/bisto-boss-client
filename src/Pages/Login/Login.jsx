@@ -18,9 +18,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const form = location.state?.from?.pathname || "/";
-  console.log("staate on thr location login page", location.state);
-
+  const from = location.state?.from?.pathname || "/";
+  console.log("staate on thr location login page" , location.state);
+  
   //----------Captha------------?
   // const captchaRef = useRef(null);
   useEffect(() => {
@@ -39,7 +39,7 @@ const Login = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
-        navigate(form, { replace: true });
+        navigate(from, {replace: true});
         return toast.success("User Creatt a success");
       })
       .then((error) => {
@@ -115,14 +115,6 @@ const Login = () => {
                   placeholder="Type the Captcha above"
                   className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
-                <div className="w-full mt-8">
-                  <button
-                    onClick={hadelvalidateCaptcha}
-                    className="btn btn-active btn-neutral text-xl w-full"
-                  >
-                    Validat
-                  </button>
-                </div>
               </div>
               {/*---------Input--------4---------*/}
               <div className="form-control mt-6">
