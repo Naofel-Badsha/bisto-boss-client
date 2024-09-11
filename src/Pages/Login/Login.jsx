@@ -1,33 +1,34 @@
-// import {
-//   loadCaptchaEnginge,
-//   LoadCanvasTemplate,
-//   validateCaptcha,
-// } from "react-simple-captcha";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
 
-// import loginImg from "../../assets/others/authentication1.png";
+import { Helmet } from "react-helmet-async";
 
-// import { useContext, useEffect,  } from "react";
+import { useEffect, useRef, useState } from "react";
 // import { AuthContext } from "../../Provider/AuthProvider";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { Helmet } from "react-helmet-async";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 // import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
-  // const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(true);
   // const { singIn } = useContext(AuthContext);
-  // const navigate = useNavigate();
-  // const location = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // const from = location.state?.from?.pathname || "/";
   console.log("staate on thr location login page", location.state);
 
   //----------Captha------------?
-  // useEffect(() => {
-  //   loadCaptchaEnginge(6);
-  // }, []);
+  const captchaRef = useRef(null);
+  
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
 
   const handelLogin = (e) => {
     e.preventDefault();
@@ -52,53 +53,56 @@ const Login = () => {
   const hadelvalidateCaptcha = (e) => {
     const user_captcha_value = e.target.value;
     console.log(user_captcha_value);
-    // if (validateCaptcha(user_captcha_value)) {
-    //   setDisabled(false);
-    // } else {
-    //   setDisabled(true);
-    // }
+    if (validateCaptcha(user_captcha_value)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
   return (
     <div className="container m-auto">
-      {/* <Helmet>
-        <title>Bristo Boss || Login Now</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Bristo || Login Now</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center py-10">Login Now</h1>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-10">
-          <div className="text-center lg:text-left">
-            {/* <img src={loginImg} className="w-full rounded-xl" /> */}
+      <div className="hero min-h-screen shadow-2xl">
+        <div className="hero-content flex-col lg:flex-row gap-10">
+          {/*------------------Image---------------*/}
+          <div className="text-center flex-1">
+            <img
+              src="https://i.ibb.co.com/HKy5dSS/login.gif"
+              className="w-full rounded-xl"
+            />
           </div>
-          <div className="card w-full max-w-sm shadow-2xl bg-base-100">
+          {/*------------------From---------------*/}
+          <div className="card  shadow-2xl flex-1">
             <form onSubmit={handelLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-xl text-black font-bold">
+                    Email
+                  </span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter Your Email"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-xl text-black font-bold">
+                    Password
+                  </span>
                 </label>
                 <input
                   type="password"
                   name="password"
                   placeholder="Enter Your Password"
-                  className="input input-bordered w-full"
-                  required
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
-                <label className="label">
-                  <a href="#" className="text-base link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
               </div>
 
               <div className="form-control">
@@ -110,30 +114,35 @@ const Login = () => {
                   type="text"
                   name="captcha"
                   placeholder="Type the Captcha above"
-                  className="input input-bordered w-full"
-                  required
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
+                <div className="w-full mt-8">
+                  <button
+                    onClick={hadelvalidateCaptcha}
+                    className="btn btn-active btn-neutral text-xl w-full"
+                  >
+                    Validat
+                  </button>
+                </div>
               </div>
               <div className="form-control mt-6">
                 <input
                   disabled={false}
                   type="submit"
                   value="Login"
-                  className="btn w-full bg-orange-500 text-slate-900 text-lg font-bold py-2 cursor-pointer rounded-md"
+                  className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
                 />
               </div>
               <p className="text-[18px]">
                 <small className="font-bold">
                   New Here...?{" "}
-                  {/* <Link to="/register" className="underline">
+                  <Link to="/register" className="underline">
                     Logged Account
-                  </Link>{" "} */}
+                  </Link>{" "}
                 </small>
               </p>
             </form>
-            <div>
-              {/* <SocialLogin></SocialLogin> */}
-            </div>
+            <div>{/* <SocialLogin></SocialLogin> */}</div>
           </div>
         </div>
       </div>

@@ -16,29 +16,13 @@ const Navbar = () => {
   };
   const navLink = (
     <>
-      <li>
-        <NavLink className="text-xl text-[#008080] font-bold" to="/">
-          Home
-        </NavLink>
-      </li>
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/">Home</NavLink></li>
       {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/dashBord">Bash Bord</NavLink></li> */}
-      <li>
-        <NavLink className="text-xl text-[#008080] font-bold" to="/ourMenu">
-          Our Menu
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-xl text-[#008080] font-bold" to="/orderFood/salad">
-          Order Food
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className="text-xl text-[#008080] font-bold" to="/contactUs">
-          Contact Us
-        </NavLink>
-      </li>
-      {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/login">Login</NavLink></li>
-          <li><NavLink className="ml-3 text-[16px] font-bold" to="/register">Register</NavLink></li> */}
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/ourMenu">Our Menu</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/orderFood/salad">Order Food</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/contactUs">Contact Us</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/login">Login</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold" to="/register">Register</NavLink></li>
       <li>
         <NavLink className="text-xl text-[#008080] font-bold" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">

@@ -4,16 +4,13 @@ import Home from "../Pages/Home/Home";
 import ContactUs from "../Pages/Contact/ContactUs";
 import OurMenu from "../Pages/MenuPage/OurMenu/OurMenu";
 import OrderFood from "../Pages/OrderFood/OrderFood/OrderFood";
-import Login from "../Components/Login/Login";
-import Register from "../Components/Register/Register";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 //------DashBoard------Routs-----Or-----Layou-------?
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/DashBoard/Cart/Cart";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
-
-
-
 
 const router = createBrowserRouter([
      {
