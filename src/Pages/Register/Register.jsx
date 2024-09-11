@@ -12,7 +12,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    // reset,
+    reset,
     formState: { errors },
   } = useForm();
   // const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -129,15 +129,27 @@ const Register = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                   })}
+                 
+               
                   name="password"
                   placeholder="Enter Your Password"
                   className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
                 {errors.password?.type === "required" && (
-                  <p className="text-red-500 mt-2">Password is required</p>
+                  <p className="text-red-500 mt-2">Password  is required</p>
                 )}
-                {errors.password?.minLength > 6 ?  "" : "Password use 6 Carrecter" }
+                {errors.password?.type === "minLength" && (
+                  <p className="text-red-500 mt-2">Password must be 6 characters</p>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <p className="text-red-500 mt-2">Password must be less then 20 characters</p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p className="text-red-500 mt-2">Password must One uppercase, One lowercase, One number and spectial characters </p>
+                )}
+
               </div>
               {/*---------Input--------5---------*/}
               <div className="form-control mt-6">
