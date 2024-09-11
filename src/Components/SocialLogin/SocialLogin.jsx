@@ -20,10 +20,10 @@ const SocialLogin = () => {
   //       navigate("/");
   //     });
   //   });
-  // };
+  };
   return (
     <div className="flex items-center justify-around gap-5">
-      {/* <img
+      <img
         onClick={handelGoogleSingIn}
         src={googleLogin}
         className="w-[45px] p-1 mb-8 cursor-pointer border-[2px] border-orange-500 rounded-full hover:border-sky-600"
@@ -31,7 +31,7 @@ const SocialLogin = () => {
       <img
         src={gitHubLogin}
         className="w-[45px] p-1 mb-8 cursor-pointer border-[2px] border-orange-500 rounded-full hover:border-sky-600"
-      /> */}
+      />
     </div>
   );
 };

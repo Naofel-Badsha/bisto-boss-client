@@ -3,29 +3,26 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-
 import { Helmet } from "react-helmet-async";
-
-import { useEffect, useRef, useState } from "react";
-// import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
-  // const { singIn } = useContext(AuthContext);
+  const { singIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const from = location.state?.from?.pathname || "/";
+  const form = location.state?.from?.pathname || "/";
   console.log("staate on thr location login page", location.state);
 
   //----------Captha------------?
-  const captchaRef = useRef(null);
-  
+  // const captchaRef = useRef(null);
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -37,17 +34,17 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    //---------Login-----user---------?
-    // singIn(email, password)
-    //   .then((res) => {
-    //     const user = res.user;
-    //     console.log(user);
-    //     navigate(from, { replace: true });
-    //     return toast.success("User Creatt a successfully");
-    //   })
-    //   .then((error) => {
-    //     console.log(error);
-    //   });
+  //---------Login-----user---------?
+    singIn(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        navigate(form, { replace: true });
+        return toast.success("User Creatt a success");
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
 
   const hadelvalidateCaptcha = (e) => {
@@ -66,17 +63,18 @@ const Login = () => {
       </Helmet>
       <h1 className="text-3xl font-bold text-center py-10">Login Now</h1>
       <div className="hero min-h-screen shadow-2xl">
-        <div className="hero-content flex-col lg:flex-row gap-10">
+        <div className="flex flex-col lg:flex-row gap-10">
           {/*------------------Image---------------*/}
           <div className="text-center flex-1">
             <img
               src="https://i.ibb.co.com/HKy5dSS/login.gif"
-              className="w-full rounded-xl"
+              className="w-full rounded-xl h-full border-2 border-[#008080]"
             />
           </div>
           {/*------------------From---------------*/}
-          <div className="card  shadow-2xl flex-1">
-            <form onSubmit={handelLogin} className="card-body">
+          <div className="card shadow-2xl flex-1">
+            <form onSubmit={handelLogin} className="card-body rounded-xl border-2 border-[#008080]">
+              {/*---------Input--------1---------*/}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-xl text-black font-bold">
@@ -91,6 +89,7 @@ const Login = () => {
                   required
                 />
               </div>
+              {/*---------Input--------2---------*/}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-xl text-black font-bold">
@@ -104,7 +103,7 @@ const Login = () => {
                   className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
               </div>
-
+              {/*---------Input--------3---------*/}
               <div className="form-control">
                 <label className="label">
                   <LoadCanvasTemplate />
@@ -125,9 +124,10 @@ const Login = () => {
                   </button>
                 </div>
               </div>
+              {/*---------Input--------4---------*/}
               <div className="form-control mt-6">
                 <input
-                  disabled={false}
+                  disabled={disabled}
                   type="submit"
                   value="Login"
                   className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
@@ -142,11 +142,13 @@ const Login = () => {
                 </small>
               </p>
             </form>
-            <div>{/* <SocialLogin></SocialLogin> */}</div>
+            <div>
+              {/* <SocialLogin></SocialLogin> */}
+              </div>
           </div>
         </div>
       </div>
-      {/* <ToastContainer></ToastContainer> */}
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

@@ -1,25 +1,25 @@
-// import { useForm } from "react-hook-form";
-// import registerImg from "../../assets/others/authentication2.png";
-// import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 // import { useContext } from "react";
 // import { AuthContext } from "../../Provider/AuthProvider";
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import useAxiosPublic from "../../Hooks/useAxiosPublic";
 // import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   // const axiousPublic = useAxiosPublic();
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm();
+  const {
+    register,
+    handleSubmit,
+    // reset,
+    formState: { errors },
+  } = useForm();
   // const { createUser, updateUserProfile } = useContext(AuthContext);
   // const navigate = useNavigate();
 
-  // const onSubmit = (data) => {
+  const onSubmit = (data) => {
+    console.log(data)
   //   createUser(data.email, data.password).then((result) => {
   //     const loggedUser = result.user;
   //     console.log(loggedUser);
@@ -46,110 +46,113 @@ const Register = () => {
   //         });
   //       })
   //       .catch((error) => console.log(error));
-  //   });
-  // };
+  //   }
+  // );
+  };
   return (
     <div className="container m-auto">
-      {/* <Helmet>
-        <title>Bristo Boss || Register Now</title>
-      </Helmet> */}
+      <Helmet>
+        <title>Bristo || Register Now</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center py-10">Register Now</h1>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse gap-10">
-          <div className="text-center w-full lg:text-left">
-            {/* <img src={registerImg} className="w-full" /> */}
+      <div className="hero min-h-screen shadow-2x">
+        <div className="flex flex-col lg:flex-row gap-10">
+          {/*------------------Image---------------*/}
+          <div className="text-center flex-1">
+            <img src="https://i.ibb.co.com/n150Rkj/E9-Tta-Yg-KZu.gif" className="w-full rounded-xl h-full border-2 border-[#008080]" />
           </div>
-          <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
-          {/* onSubmit={handleSubmit(onSubmit)} */}
-            <form  className="card-body">
+          {/*------------------From---------------*/}
+          <div className="card shadow-2xl flex-1">
+            <form  onSubmit={handleSubmit(onSubmit)} className="card-body rounded-xl border-2 border-[#008080]">
+              {/*---------Input--------1---------*/}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text text-xl text-black font-bold">Name</span>
                 </label>
                 <input
                   type="text"
-                  // {...register("name", { required: true })}
+                  {...register("name", { required: true })}
                   name="name"
                   placeholder="Enter Your Name"
-                  className="input input-bordered"
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
-                {/* {errors.name && (
+                {errors.name && (
                   <span className="text-red-500 mt-2">
                     This Name is required
                   </span>
-                )} */}
+                )}
               </div>
+              {/*---------Input--------2---------*/}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Photo</span>
+                  <span className="label-text text-xl text-black font-bold">Photo</span>
                 </label>
-                {/* <input
+                <input
                   type="text"
                   {...register("photo", { required: true })}
                   name="photo"
                   placeholder="Enter Your Name"
-                  className="input input-bordered"
-                /> */}
-                {/* {errors.photo && (
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
+                />
+                {errors.photo && (
                   <span className="text-red-500 mt-2">
                     This photo is required
                   </span>
-                )} */}
+                )}
               </div>
+              {/*---------Input--------3---------*/}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-xl text-black font-bold">Email</span>
                 </label>
                 <input
                   type="email"
-                  // {...register("email", { required: true })}
+                  {...register("email", { required: true })}
                   name="email"
                   placeholder="Enter Your Email"
-                  className="input input-bordered"
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
-              </div>
-              {/* {errors.email && (
+                {errors.email && (
                 <span className="text-red-500 mt-2">
                   This Email is required
                 </span>
-              )} */}
+              )}
+              </div>
+              {/*---------Input--------4---------*/}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-xl text-black font-bold">Password</span>
                 </label>
                 <input
                   type="password"
-                  // {...register("password", {
-                  //   required: true,
-                  //   minLength: 6,
-                  //   maxLength: 20,
-                  // })}
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    maxLength: 20,
+                  })}
                   name="password"
                   placeholder="Enter Your Password"
-                  className="input input-bordered"
+                  className="input input-bordered w-full text-xl text-black bg-slate-200"
                 />
-                {/* {errors.password?.type === "required" && (
+                {errors.password?.type === "required" && (
                   <p className="text-red-500 mt-2">Password is required</p>
-                )} */}
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
+                )}
+                {errors.password?.minLength > 6 ?  "" : "Password use 6 Carrecter" }
               </div>
+              {/*---------Input--------5---------*/}
               <div className="form-control mt-6">
                 <input
                   type="submit"
                   value="Register"
-                  className="btn w-full bg-orange-500 text-slate-900 text-lg font-bold py-2 cursor-pointer rounded-md"
+                  className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
                 />
               </div>
               <p className="text-[18px]">
                 <small className="font-bold">
                   New Here...?{" "}
-                  {/* <Link to="/login" className="underline">
+                  <Link to="/login" className="underline">
                     Creatr Account
-                  </Link>{" "} */}
+                  </Link>{" "}
                 </small>
               </p>
             </form>
