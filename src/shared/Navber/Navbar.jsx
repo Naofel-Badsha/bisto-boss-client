@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../../Provider/AuthProvider";
+import useCart from "../../Hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const [cart] = useCart()
   const handelSingOut = () => {
     logOut()
       .then((res) => {
@@ -27,7 +28,7 @@ const Navbar = () => {
         <NavLink className="text-xl text-[#008080] font-bold" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">
             <i className="fa-solid fa-cart-plus text-[22px]"></i>
-            {/* <div className="badge badge-secondary">+{cart.length}</div> */}
+            <div className="badge badge-secondary">+{cart.length}</div>
           </button>
         </NavLink>
       </li>

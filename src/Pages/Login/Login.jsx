@@ -17,7 +17,7 @@ const Login = () => {
   const { singIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-
+  //------Path------name-----location-------
   const from = location.state?.from?.pathname || "/";
   console.log("staate on thr location login page" , location.state);
   
@@ -119,7 +119,8 @@ const Login = () => {
               {/*---------Input--------4---------*/}
               <div className="form-control mt-6">
                 <input
-                  disabled={disabled}
+                // TODO: Applt disabled to recapcha
+                  disabled={false}
                   type="submit"
                   value="Login"
                   className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"

@@ -38,7 +38,7 @@ const OrderFood = () => {
               justifyContent: "center",
               paddingTop: "50px",
             }}
-          >
+          >  
             <Tab>dessert</Tab>
             <Tab>pizza</Tab>
             <Tab>soup</Tab>
