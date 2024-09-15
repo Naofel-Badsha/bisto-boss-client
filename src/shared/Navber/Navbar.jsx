@@ -17,15 +17,15 @@ const Navbar = () => {
   };
   const navLink = (
     <>
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/">Home</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/">Home</NavLink></li>
       {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/dashBord">Bash Bord</NavLink></li> */}
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/ourMenu">Our Menu</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/orderFood/salad">Order Food</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold" to="/contactUs">Contact Us</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/ourMenu">Our Menu</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/orderFood/salad">Order Food</NavLink></li>
+      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/contactUs">Contact Us</NavLink></li>
       {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/login">Login</NavLink></li> */}
       {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/register">Register</NavLink></li> */}
       <li>
-        <NavLink className="text-xl text-[#008080] font-bold" to="/dashboard/cart">
+        <NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">
             <i className="fa-solid fa-cart-plus text-[22px]"></i>
             <div className="badge badge-secondary">+{cart.length}</div>
@@ -85,7 +85,7 @@ const Navbar = () => {
           <>
             <button
               onClick={handelSingOut}
-              className="btn text-white hover:text-[#008080] md:text-xl lg:text-xl font-bold border-0"
+              className="btn bg-black text-white hover:text-white hover:bg-[#008080]  md:text-xl lg:text-xl font-bold border-0"
             >
               Sing Out
             </button>
