@@ -2,15 +2,40 @@ import useCart from "./../../../Hooks/useCart";
 import SectionTitle from "./../../../Components/SectionTitle/SectionTitle";
 import { MdDelete } from "react-icons/md";
 import useAxiosSecure from './../../../Hooks/useAxiosSecure';
+import Swal from "sweetalert2";
 const Cart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
-  // const axiosSecure =  useAxiosSecure()
+  const axiosSecure =  useAxiosSecure();
+
   //---------Delete-----cart-----Item-------
   const handelDeleteCard = (_id) => {
    console.log('deleted items----?', _id)
-
-  //  axiosSecure.delete(`/carts${item._id}`)
+   Swal.fire({
+    title: "Are you sure?",
+    text: "Cart items delete...!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      axiosSecure.delete(`/carts/${_id}`)
+      .then(res => {
+        console.log(res.data)
+        if(res.data.deletedCount > 0){
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your cart items deleted successfylly",
+            icon: "success"
+          });
+          refetch()
+        }
+      })
+    }
+  });
+ 
 
   }
   

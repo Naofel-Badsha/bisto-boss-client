@@ -6,7 +6,10 @@ import { TbBrandBooking } from "react-icons/tb";
 import { IoMenu } from "react-icons/io5";
 import { FaBasketShopping } from "react-icons/fa6";
 import { MdMessage } from "react-icons/md";
+import useCart from "../Hooks/useCart";
+
 const Dashboard = () => {
+  const [cart] = useCart();
   return (
     <div className="flex">
       {/*-----------Sidebar-------------*/}
@@ -26,7 +29,7 @@ const Dashboard = () => {
             </li>
             {/*----------4------------*/}
             <li className="py-3">
-              <NavLink className="text-xl text-white " to="/dashboard/cart"><FaCartPlus/> My Cart</NavLink>
+              <NavLink className="text-xl text-white " to="/dashboard/cart"><FaCartPlus/> My Cart ({cart.length})</NavLink>
             </li>
             {/*----------5------------*/}
             <li className="py-3">
