@@ -4,11 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
-// import SocialLogin from "../SocialLogin/SocialLogin";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const Register = () => {
-  // const axiousPublic = useAxiosPublic();
+  const axiousPublic = useAxiosPublic();
   const {
     register,
     handleSubmit,
@@ -26,35 +26,25 @@ const Register = () => {
       //--------------Updated------Profile-------
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          reset();
-          Swal.fire({
-            position: "top",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
-          
           //------Create user entry in  the Database-------?
-          // const userInfo = {
-          //   name: data.name,
-          //   email: data.email,
-          // };
-          // axiousPublic.post("/users", userInfo).then((res) => {
-          //   if (res.data.insertedId) {
-          //     console.log("user added successfull to The database");
-          //     reset();
-          //     Swal.fire({
-          //       position: "top",
-          //       icon: "success",
-          //       title: "Your work has been saved",
-          //       showConfirmButton: false,
-          //       timer: 1500,
-          //     });
-          //     navigate("/");
-          //   }
-          // });
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiousPublic.post("/users", userInfo).then((res) => {
+            console.log(res.data);
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              navigate("/");
+            }
+          });
         })
         .catch((error) => console.log(error));
     });
@@ -181,10 +171,10 @@ const Register = () => {
                 <input
                   type="submit"
                   value="Register"
-                  className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
+                  className="btn w-full bg-[#008080] text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
                 />
               </div>
-              <p className="text-[18px]">
+              <p className="text-[18px] text-center">
                 <small className="font-bold">
                   New Here...?{" "}
                   <Link to="/login" className="underline">
@@ -192,8 +182,10 @@ const Register = () => {
                   </Link>{" "}
                 </small>
               </p>
+              <div className="mt-6">
+                <SocialLogin></SocialLogin>
+              </div>
             </form>
-            {/* <SocialLogin></SocialLogin> */}
           </div>
         </div>
       </div>

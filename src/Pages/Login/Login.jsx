@@ -10,7 +10,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import SocialLogin from "../SocialLogin/SocialLogin";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
@@ -19,8 +19,8 @@ const Login = () => {
   const location = useLocation();
   //------Path------name-----location-------
   const from = location.state?.from?.pathname || "/";
-  console.log("staate on thr location login page" , location.state);
-  
+  console.log("staate on thr location login page", location.state);
+
   //----------Captha------------?
   // const captchaRef = useRef(null);
   useEffect(() => {
@@ -34,12 +34,12 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-  //---------Login-----user---------?
+    //---------Login-----user---------?
     singIn(email, password)
       .then((res) => {
         const user = res.user;
         console.log(user);
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
         return toast.success("User Creatt a success");
       })
       .then((error) => {
@@ -73,7 +73,10 @@ const Login = () => {
           </div>
           {/*------------------From---------------*/}
           <div className="card shadow-2xl flex-1">
-            <form onSubmit={handelLogin} className="card-body rounded-xl border-2 border-[#008080]">
+            <form
+              onSubmit={handelLogin}
+              className="card-body rounded-xl border-2 border-[#008080]"
+            >
               {/*---------Input--------1---------*/}
               <div className="form-control">
                 <label className="label">
@@ -119,14 +122,14 @@ const Login = () => {
               {/*---------Input--------4---------*/}
               <div className="form-control mt-6">
                 <input
-                // TODO: Applt disabled to recapcha
+                  // TODO: Applt disabled to recapcha
                   disabled={false}
                   type="submit"
                   value="Login"
-                  className="btn w-full bg-orange-500 text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
+                  className="btn w-full bg-[#008080] text-slate-900 hover:text-white duration-100 border-0 h text-lg font-bold py-2 cursor-pointer rounded-md"
                 />
               </div>
-              <p className="text-[18px]">
+              <p className="text-[18px] text-center">
                 <small className="font-bold">
                   New Here...?{" "}
                   <Link to="/register" className="underline">
@@ -134,10 +137,10 @@ const Login = () => {
                   </Link>{" "}
                 </small>
               </p>
-            </form>
-            <div>
-              {/* <SocialLogin></SocialLogin> */}
+              <div className="mt-6">
+                <SocialLogin></SocialLogin>
               </div>
+            </form>
           </div>
         </div>
       </div>

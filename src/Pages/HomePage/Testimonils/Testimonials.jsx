@@ -33,9 +33,9 @@ const Testimonials = () => {
             <SwiperSlide key={review._id}>
               <div className="flex flex-col items-center m-24  text-center">
                 <Rating style={{ maxWidth: 180 }} value={review.rating} isRequired />
-                <i className="fa-solid fa-quote-right text-6xl py-3"></i>
-                <p>{review.details}</p>
-                <h3 className="text-2xl text-orange-500 font-bold">
+                <i className="fa-solid fa-quote-right text-6xl py-3 text-[#008080]"></i>
+                <p className="py-3">{review.details}</p>
+                <h3 className="text-2xl text-[#008080] font-bold">
                   {review.name}
                 </h3>
               </div>

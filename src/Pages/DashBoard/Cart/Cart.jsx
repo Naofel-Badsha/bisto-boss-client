@@ -67,7 +67,7 @@ const Cart = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-2xl font-bold text-black">
+            <tr className="text-2xl font-bold bg-[#008080] text-white">
               <th>#</th>
               <th>Item Image</th>
               <th>Item Name</th>
@@ -95,7 +95,7 @@ const Cart = () => {
                 <td className="text-xl text-black">$: {item.price}</td>
                 <th>
                   <button onClick={() => handelDeleteCard(item._id)}
-                  className="btn text-3xl text-white bg-[#008080] border-0 "><MdDelete /></button>
+                  className="btn text-3xl text-white bg-[#ff004f] border-0 "><MdDelete /></button>
                 </th>
               </tr>
               )

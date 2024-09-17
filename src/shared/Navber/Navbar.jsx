@@ -93,7 +93,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="login">
-              <button className="btn text-white hover:text-[#ff6347] md:text-xl lg:text-xl font-bold border-0">
+              <button className="btn bg-black text-white hover:text-white hover:bg-[#008080]  md:text-xl lg:text-xl font-bold border-0">
                 Login
               </button>
             </Link>

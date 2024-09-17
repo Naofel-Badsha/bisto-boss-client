@@ -72,7 +72,7 @@ const FoodCard = ({ item }) => {
           <p className="text-xl py-2">{recipe}?</p>
           <div className="card-actions">
             <button onClick={() => handleAddToCart(item)}
-             className="btn hover:text-white bg-slate-200 duration-100 text-black text-xl border-0 border-b-4 border-orange-400">
+             className="btn hover:text-white bg-slate-200 duration-100 text-black text-xl border-0 border-b-4 border-[#008080]">
               Add To Cart
             </button>
           </div>
