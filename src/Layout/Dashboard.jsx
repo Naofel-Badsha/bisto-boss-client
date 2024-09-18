@@ -11,12 +11,13 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaBook } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import useCart from "../Hooks/useCart";
+import useAdmin from "../Hooks/useAdmin";
 
 
 const Dashboard = () => {
   const [cart] = useCart();
 
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <div className="flex">
       {/*-----------Sidebar-------------*/}
