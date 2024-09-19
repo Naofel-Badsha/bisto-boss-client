@@ -1,8 +1,56 @@
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
+
+const image_hosting_key = import.meta.env.VITE_Image_Hosting_key
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 const AddItems = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure()
+  const onSubmit = async (data) =>{
+    console.log(data);
+    //----image upload to imagebb and get then an url
+    const imageFile = {image: data.image[0]}
+    const res = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        'content-type' : 'multipart/form-data'
+      }
+    })
+    if(res.data.success){
+     //----now send the menu item data to the servrt width the image url
+     const menuItem = {
+      name: data.name,
+      category: data.category,
+      price: parseFloat(data.price),
+      recipe: data.recipe,
+      image: res.data.data.display_url
+     }
+    //------------
+    const menuRes = await axiosSecure.post('/menu', menuItem)
+    console.log(menuRes.data)
+    //--------------
+    if(menuRes.data.insertedId){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Added memu seccessfull",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+
+  }
+    console.log('with image url', res.data)
+  }
+
+
+
+
   return (
     <div className="container m-auto">
       {/*----------Title---------*/}
@@ -72,7 +120,7 @@ const AddItems = () => {
             </label>
             <textarea
               type="text"
-              {...register("details")}
+              {...register("recipe")}
               placeholder="Recipe Details..."
               className="input input-bordered bg-slate-50 w-full h-40 p-4 text-black text-xl"
             />
@@ -84,13 +132,12 @@ const AddItems = () => {
               Choose image*
               </span>
             </label>
-            <input 
-            type="file"
-            {...register("image")}
-            className="file-input block w-full text-xl text-gray-900 p-2 rounded-lg dark:text-gray-400 dark:bg-gray-700 dark:placeholder-gray-400"/>
+          <input type="file"
+          {...register("image")}
+           className="file-input bg-slate-300 file-input-bordered w-full max-w-xs" />
           </div>
-
-          <input type="submit" className="btn border-0 text-xl text-white bg-[#008080] mt-4 "/>
+    
+          <button className="btn border-0 text-xl text-white bg-[#008080] mt-4 ">submit</button>
         </form>
       </div>
     </div>
