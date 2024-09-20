@@ -21,7 +21,8 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       });
 
-      //------Intercepts 401 and 403 status-----
+
+      //------!Not admin access---Intercepts 401 and 403 status-----
       axiosSecure.interceptors.response.use(function (response) {
         return response;
       }, async(error) =>{
@@ -30,8 +31,8 @@ const useAxiosSecure = () => {
         // console.log('status error in the interceptor', status)
         //----for 401 or 403 logout the user and move to the login
         if(status === 401 || status === 403){
-            await logOut()
-           navigate('/login')
+            await logOut();
+           navigate('/login');
         }
         return Promise.reject(error);
       })

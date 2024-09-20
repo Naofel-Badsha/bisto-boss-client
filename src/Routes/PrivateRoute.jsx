@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
   if (loading) {
-    return <div className="flex item-center justify-center"> <img src="https://i.ibb.co.com/6Bt99B3/loding-3.gif" className="w-[200px] " /></div>
+    return <div className="flex item-center justify-center h-[100vh] "> <img src="https://i.ibb.co.com/6Bt99B3/loding-3.gif" className="w-[200px] h-[200px] " /></div>
   }
   if (user) {
     return children;

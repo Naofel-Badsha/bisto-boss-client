@@ -17,10 +17,12 @@ import AddReview from "../Pages/DashBoard/AddReview/AddReview";
 import MyBooking from "../Pages/DashBoard/MyBooking/MyBooking";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import AddItems from "../Pages/DashBoard/AddItems/AddItems";
+import UpdateItems from "../Pages/DashBoard/UpdateItems/UpdateItems";
 import ManageItems from "../Pages/DashBoard/ManageItems/ManageItems";
 import ManageBookings from "../Pages/DashBoard/ManageBookings/ManageBookings";
 import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute";
+
 
 const router = createBrowserRouter([
      {
@@ -91,6 +93,11 @@ const router = createBrowserRouter([
             {
                 path: 'addItems',
                 element: <AdminRoute><AddItems></AddItems></AdminRoute>
+            },
+            {
+                path: 'upadteItems/:id',
+                element: <AdminRoute><UpdateItems></UpdateItems></AdminRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
             },
             {
                 path: 'manageItems',

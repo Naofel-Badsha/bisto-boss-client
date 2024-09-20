@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import useMenu from "../../../Hooks/useMenu";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const ManageItems = () => {
   const [menu, , refetch] = useMenu();
@@ -11,7 +12,7 @@ const ManageItems = () => {
 
   //--------handelDeleteItem----
   const handelDeleteItem = (item) => {
-    console.log('Deletes spacfic menu items', item)
+    // console.log('Deletes spacfic menu items', item)
     Swal.fire({
       title: "Are you sure?",
       text: `${menu.name} is Deleted!`,
@@ -20,21 +21,20 @@ const ManageItems = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+    }).then(async(result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/menu/${menu._id}`)
-        .then(res => {
-          console.log(res.data)
-          if(res.data.deletedCount > 0){
-            refetch()
-            Swal.fire({
-              title: "Deleted!",
-              text: "Deleted Successfull.",
-              icon: "success"
-            });
-
-          }
-        })
+     const res = await axiosSecure.delete(`/menu/${menu._id}`)
+     console.log(res.data)
+     // .then(res => {
+        //   if(res.data.deletedCount > 0){
+        //     refetch()
+        //     Swal.fire({
+        //       title: "Deleted!",
+        //       text: "Deleted Successfull.",
+        //       icon: "success"
+        //     });
+        //   }
+        // })
       }
     });
   };
@@ -84,16 +84,18 @@ const ManageItems = () => {
                 <td className="text-xl text-black">{item.name}</td>
                 <td className="text-xl text-black">$: {item.price}</td>
                 <th>
+                  <Link to={`/dashboard/upadteItems/${item._id}`}>
                   <button
                     // onClick={() => handelUpdateItem(item._id)}
                     className="btn text-3xl text-white bg-[#008080] border-0 "
                   >
                     <FaEdit />
                   </button>
+                  </Link>
                 </th>
                 <th>
                   <button
-                    onClick={() => handelDeleteItem(item._id)}
+                    onClick={() => handelDeleteItem(item)}
                     className="btn text-3xl text-white bg-[#ff004f] border-0 "
                   >
                     <MdDelete />
