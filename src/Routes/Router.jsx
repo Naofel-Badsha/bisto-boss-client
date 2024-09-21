@@ -88,7 +88,7 @@ const router = createBrowserRouter([
             //----------Admin--------Routes---------?
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: 'addItems',
@@ -101,11 +101,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'manageItems',
-                element: <ManageItems></ManageItems>
+                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
             },
             {
                 path: 'managebooking',
-                element: <ManageBookings></ManageBookings>
+                element: <AdminHome><ManageBookings></ManageBookings></AdminHome>
             },
             {
                 path: 'allUsers',

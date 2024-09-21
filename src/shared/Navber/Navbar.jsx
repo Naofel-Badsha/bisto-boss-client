@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../../Provider/AuthProvider";
 import useCart from "../../Hooks/useCart";
+import useAdmin from "../../Hooks/useAdmin";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [cart] = useCart()
+  const [isAdmin] = useAdmin();
+  const [cart] = useCart();
   const handelSingOut = () => {
     logOut()
       .then((res) => {
@@ -17,13 +20,17 @@ const Navbar = () => {
   };
   const navLink = (
     <>
-      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/">Home</NavLink></li>
-      {/* <li><NavLink className="ml-3 text-[16px] font-bold" to="/dashBord">Bash Bord</NavLink></li> */}
-      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/ourMenu">Our Menu</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/orderFood/salad">Order Food</NavLink></li>
-      <li><NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/contactUs">Contact Us</NavLink></li>
-      {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/login">Login</NavLink></li> */}
-      {/* <li><NavLink className="text-xl text-[#008080] font-bold" to="/register">Register</NavLink></li> */}
+      <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/">Home</NavLink></li>
+      <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/ourMenu">Our Menu</NavLink></li>
+      <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/orderFood/salad">Order Food</NavLink></li>
+      <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/contactUs">Contact Us</NavLink></li>
+      {
+        // user ? "true" : 'false'
+        // user ? condition? : "double true" : "one true" : "false"
+      }
+      {user && isAdmin && <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/dashboard/adminHome">Dashboard</NavLink></li>}
+      {user && !isAdmin && <li><NavLink className="text-[16px] text-[#008080] border-2 border-[#008080]" to="/dashboard/userHome">Dashboard</NavLink></li>}
+
       <li>
         <NavLink className="text-xl text-[#008080] font-bold border-2 border-[#008080]" to="/dashboard/cart">
           <button className="flex items-center justify-center gap-2">
@@ -51,9 +58,9 @@ const Navbar = () => {
                   <i className="fa-solid fa-bars text-2xl hover:rotate-45"></i>
                 </label>
               </div>
-              <div className="flex-1 px-2 mx-2 text-xl md:text-2xl lg:text-2xl">Brosto Boss</div>
+              <div className="flex-1 px-2 text-xl md:text-2xl lg:text-2xl">BBoss</div>
               <div className="flex-none hidden lg:block">
-                <ul className=" menu menu-horizontal gap-5">
+                <ul className=" menu menu-horizontal gap-4">
                   {/* Navbar menu content here */}
                   {navLink}
                 </ul>
@@ -67,7 +74,7 @@ const Navbar = () => {
               aria-label="close sidebar"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-80 min-h-full bg-base-200 gap-10">
+            <ul className="menu w-60 md:w-72 lg:w-80 min-h-full bg-base-200">
               {/* Sidebar content here */}
               <NavLink className="">{navLink}</NavLink>
             </ul>

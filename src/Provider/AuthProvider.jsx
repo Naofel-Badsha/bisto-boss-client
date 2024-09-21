@@ -67,14 +67,19 @@ const AuthProvider = ({ children }) => {
         .then(res => {
           if(res.data.token){
             localStorage.setItem('access-token', res.data.token);
+            //------verify user and admin jokhon takbea tokhon------
+            setLoading(false)
           }
         })
       }
       else{
         //-----Do----Something remove Token (if token stored in the client side: Loval storage, caching, in memory----
         localStorage.removeItem('access-token')
+          //------verify user and admin jokhon takbea tokhon------
+          setLoading(false)
       }
-      setLoading(false)
+      //--------Normal user jokhon takbe tokon-------
+      // setLoading(false)
     });
     return () => {
       unsubscribe();
