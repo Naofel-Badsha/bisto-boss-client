@@ -7,17 +7,26 @@ import { FaUsers } from "react-icons/fa";
 import { GiAmpleDress } from "react-icons/gi";
 import { FaFirstOrder } from "react-icons/fa";
 
+
 const AdminHome = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: stats } = useQuery({
+  const { data: stats = {} } = useQuery({
     queryKey: ["admin-stats"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/admin-stats");
+      const res = await axiosSecure.get('/admin-stats');
       return res.data;
-    },
+    }
   });
+
+  const {data: chartData = {}} = useQuery({
+    queryKey: ['order-stats'],
+    queryFn: async () =>{
+      const res = await axiosSecure.get('/order-stats');
+      return res.data
+    }
+  })
 
   return (
     <div>
@@ -41,7 +50,7 @@ const AdminHome = () => {
           <div className="flex items-center  justify-center gap-4">
             <FaDollarSign className="text-4xl" />
             <div>
-              {/* <div className="stat-value">{stats.revenue}</div> */}
+              <div className="stat-value">{stats?.revenue}</div>
               <div className="text-2xl">Revenue</div>
             </div>
           </div>
@@ -51,7 +60,7 @@ const AdminHome = () => {
           <div className="flex items-center  justify-center gap-4">
             <FaUsers className="text-4xl" />
             <div>
-              {/* <div className="stat-value">{stats.users}</div> */}
+              <div className="stat-value">{stats?.users}</div>
               <div className="text-2xl">Users</div>
             </div>
           </div>
@@ -61,7 +70,7 @@ const AdminHome = () => {
           <div className="flex items-center justify-center gap-4">
             <GiAmpleDress className="text-4xl" />
             <div>
-              {/* <div className="stat-value">{stats.menuItems}</div> */}
+              <div className="stat-value">{stats?.menuItems}</div>
               <div className="text-2xl">Users</div>
             </div>
           </div>
@@ -71,7 +80,7 @@ const AdminHome = () => {
           <div className="flex items-center justify-center gap-4">
             <FaFirstOrder className="text-4xl" />
             <div>
-              {/* <div className="stat-value">{stats.orders}</div> */}
+              <div className="stat-value">{stats?.orders}</div>
               <div className="text-2xl">Orders</div>
             </div>
           </div>
